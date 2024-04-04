@@ -1,4 +1,5 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends
+from sqlalchemy.orm import Session
 import uvicorn
 from predict import predict_sentiment
 import os
@@ -7,7 +8,7 @@ from logging.handlers import RotatingFileHandler
 import boto3
 import psycopg2
 from psycopg2 import sql
-from database import db_session, engine, Base, init_db
+from database import db_session, engine, Base, init_db, PredictionLog
 import boto3
 from config import getSettings
 
@@ -53,15 +54,21 @@ def on_startup():
     init_db()
     db_logger.info("Database created Successfully")
 
+def log_prediction(db: Session, text: str, sentiment: str):
+    log_entry = PredictionLog(input_text = text, predicted_sentiment= sentiment)
+    db.add(log_entry)
+    db.commit()
+
 @app.get("/ping")
 def pong():
     return {"ping": "pong!"}
 
 @app.get("/predict")
-def predict(text: str):
+def predict(text: str, db: Session = Depends(db_session)):
     if not text:
         raise HTTPException(status_code=400, detail="No text provided for prediction.")
     sentiment = predict_sentiment(text)
+    log_prediction(db, text, sentiment)
     return {"text": text, "sentiment": sentiment}
 
 
