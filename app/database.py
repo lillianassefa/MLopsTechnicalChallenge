@@ -5,15 +5,17 @@ import psycopg2
 import time
 from datetime import datetime
 import logging
-from config import getSettings
+import os
+from dotenv import load_dotenv
 
-settings = getSettings()
+load_dotenv()
 
-db_name = settings.DB_name
-db_user = settings.DB_user
-db_pass = settings.DB_password
-db_host = settings.DB_host
-db_port = settings.DB_port
+
+db_name = os.getenv('DB_name')
+db_user = os.getenv('DB_user')
+db_pass = os.getenv('DB_password')
+db_host = os.getenv('DB_host')
+db_port = os.getenv('DB_port')
 
 logger = logging.getLogger("database")
 
@@ -42,8 +44,7 @@ def db_connection():
             time.sleep(wait_time)
             retries += 1
 
-
-DATABASE_URL = f"postgresql://{settings.DB_user}:{settings.DB_password}@{settings.DB_host}:{settings.DB_port}/{settings.DB_name}"
+DATABASE_URL = f"postgresql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}"
 engine = create_engine(DATABASE_URL)
 db_session = scoped_session(
     sessionmaker(bind=engine, autoflush=False, autocommit=False)

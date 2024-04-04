@@ -8,11 +8,9 @@ from logging.handlers import RotatingFileHandler
 import boto3
 import psycopg2
 from psycopg2 import sql
-from database import db_session, engine, Base, init_db, PredictionLog
+from database import  init_db, PredictionLog
 import boto3
-from config import getSettings
 
-settings = getSettings()
 
 loggers = {
     'default':  'app.log',
@@ -75,4 +73,7 @@ def predict(text: str, db: Session = Depends(db_session)):
 
 if __name__ == "__main__" :
     logger.info("Starting FastAPI application")
-    uvicorn.run('app:app',host='0.0.0.0', port= '8080', reload=True)
+    uvicorn.run('app:app',host='0.0.0.0', port= '8080', reload=True)    
+    logger.info("Application started successfully")
+
+

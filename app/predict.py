@@ -3,9 +3,9 @@ from transformers import RobertaTokenizer, RobertaForSequenceClassification, pip
 import os
 import zipfile
 import logging
+from dotenv import load_dotenv
 
-from config import getSettings
-settings = getSettings()
+load_dotenv()
 
 # Global variable to hold the loaded model
 sentiment_model = None
@@ -39,8 +39,8 @@ def load_model():
     global sentiment_model, tokenizer
     try:
         
-        bucket_name = settings.bucket_name
-        s3_object_key = settings.object_key
+        bucket_name = os.getenv('bucket_name')
+        s3_object_key = os.getenv('object_key')
         local_model_dir = './model'
 
         # Download the model from S3
