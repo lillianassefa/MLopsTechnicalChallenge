@@ -1,6 +1,6 @@
 # MLopsTechnicalChallenge
 This project is initially built for a technical challenge to join Junior MLOPS Postion
-
+![alt text](<Screenshot from 2024-04-05 09-27-50.png>)
 # FastAPI Sentiment Analysis Service
 
 It is a sentiment analysis service built with FastAPI. It utilizes a machine learning model(ROBERTA) to analyze text and determine sentiment (Positive, Negative, Neutral). The service is containerized using Docker for easy deployment and scalability.
