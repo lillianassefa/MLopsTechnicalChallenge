@@ -1,0 +1,14 @@
+version: '3.12.2'
+
+services:
+  server:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DB_name: postgres
+      DB_user: postgres
+      DB_password: 12345678
+      DB_host: microservicemodel.crwuq2iiy62m.us-east-1.rds.amazonaws.com
+      DB_port: 5432 
+      

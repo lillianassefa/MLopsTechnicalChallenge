@@ -58,7 +58,7 @@ class PredictionLog(Base):
     id = Column(Integer, primary_key=True)
     input_text = Column(String, nullable=False)
     predicted_sentiment = Column(String, nullable=False)
-    timestamp = Column(DateTime, default=datetime.utcnow)
+    timestamp = Column(DateTime, default=datetime.now)
 
 
 def init_db():

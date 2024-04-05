@@ -8,7 +8,7 @@ from logging.handlers import RotatingFileHandler
 import boto3
 import psycopg2
 from psycopg2 import sql
-from database import  init_db, PredictionLog
+from database import  init_db, PredictionLog, db_session
 import boto3
 
 
