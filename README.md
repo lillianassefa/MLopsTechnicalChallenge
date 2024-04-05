@@ -1,6 +1,6 @@
 # MLopsTechnicalChallenge
 This project is initially built for a technical challenge to join Junior MLOPS Postion
-![alt text](<Screenshot from 2024-04-05 09-27-50.png>)
+![alt text](https://github.com/lillianassefa/MLopsTechnicalChallenge/blob/main/images/fastapi.png)
 ![image](https://github.com/lillianassefa/MLopsTechnicalChallenge/assets/66700253/84f50a4d-77b7-408c-b76e-c4927b7da9cf)
 
 # FastAPI Sentiment Analysis Service
