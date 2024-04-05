@@ -1,0 +1,85 @@
+2024-04-04 18:34:37,070 - model - ERROR - Error downloading and extracting model from S3: Unable to locate credentials
+2024-04-04 18:36:46,823 - model - ERROR - Error downloading and extracting model from S3: Unable to locate credentials
+2024-04-05 09:51:05,729 - model - ERROR - Error downloading and extracting model from S3: Unable to locate credentials
+2024-04-05 10:05:08,116 - model - ERROR - Error loading model: Partial credentials found in env, missing: AWS_SECRET_ACCESS_KEY
+2024-04-05 10:20:46,340 - model - ERROR - Error loading model: Incorrect path_or_model_id: './model/sentiment model'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+2024-04-05 10:29:19,499 - model - ERROR - Error loading model: Incorrect path_or_model_id: './model/sentiment model'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+2024-04-05 10:47:58,329 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 10:48:20,125 - model - INFO - Stored and extracted model to $./model
+2024-04-05 10:48:20,128 - model - ERROR - Error loading model: Can't load tokenizer for './model/models--cardiffnlp--twitter-roberta-base-sentiment'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure './model/models--cardiffnlp--twitter-roberta-base-sentiment' is the correct path to a directory containing all relevant files for a RobertaTokenizer tokenizer.
+2024-04-05 11:06:48,034 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 11:07:09,628 - model - INFO - Stored and extracted model to $./model
+2024-04-05 11:07:09,632 - model - ERROR - Error loading model: Incorrect path_or_model_id: '/models--cardiffnlp--twitter-roberta-base-sentiment/snapshots/daefdd1f6ae931839bce4d0f3db0a1a4265cd50f'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+2024-04-05 11:17:33,035 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 11:17:57,621 - model - INFO - Stored and extracted model to $./model
+2024-04-05 11:17:57,623 - model - ERROR - Error loading model: Expecting value: line 1 column 1 (char 0)
+2024-04-05 11:22:55,064 - model - INFO - Initializing s3 client
+2024-04-05 11:24:31,202 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 11:24:53,075 - model - INFO - Stored and extracted model to ./model
+2024-04-05 11:24:53,092 - model - ERROR - Error loading model: Expecting value: line 1 column 1 (char 0)
+2024-04-05 11:31:04,839 - model - INFO - Initializing s3 client
+2024-04-05 11:32:46,627 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 11:33:09,681 - model - INFO - Stored and extracted model to ./model
+2024-04-05 11:33:09,685 - model - ERROR - Error loading model: Expecting value: line 1 column 1 (char 0)
+2024-04-05 11:47:02,269 - model - INFO - Initializing s3 client
+2024-04-05 11:48:21,137 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 11:48:42,537 - model - INFO - Stored and extracted model to ./model
+2024-04-05 11:48:42,540 - model - ERROR - Error loading model: ./model/models--cardiffnlp--twitter-roberta-base-sentiment does not appear to have a file named config.json. Checkout 'https://huggingface.co/./model/models--cardiffnlp--twitter-roberta-base-sentiment/tree/None' for available files.
+2024-04-05 11:49:26,917 - model - INFO - Initializing s3 client
+2024-04-05 11:50:37,167 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 11:50:58,460 - model - INFO - Stored and extracted model to ./model
+2024-04-05 11:50:58,464 - model - ERROR - Error loading model: It looks like the config file at './model/models--cardiffnlp--twitter-roberta-base-sentiment/snapshots/daefdd1f6ae931839bce4d0f3db0a1a4265cd50f/config.json' is not a valid JSON file.
+2024-04-05 12:13:58,606 - model - INFO - Initializing s3 client
+2024-04-05 12:15:00,854 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 12:15:14,565 - model - INFO - Stored and extracted model to ./model
+2024-04-05 12:15:14,568 - model - ERROR - Error loading model: Incorrect path_or_model_id: './model/models--cardiffnlp--twitter-roberta-base-sentiment/snapshots/daefdd1f6ae931839bce4d0f3db0a1a4265cd50f'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+2024-04-05 12:15:52,734 - model - INFO - Initializing s3 client
+2024-04-05 12:16:54,531 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 12:17:08,380 - model - INFO - Stored and extracted model to ./model
+2024-04-05 12:17:08,400 - model - ERROR - Error loading model: Incorrect path_or_model_id: './model/models--cardiffnlp--twitter-roberta-base-sentiment/snapshots/daefdd1f6ae931839bce4d0f3db0a1a4265cd50f'. Please provide either the path to a local folder or the repo_id of a model on the Hub.
+2024-04-05 12:36:52,974 - model - INFO - Initializing s3 client
+2024-04-05 12:38:24,903 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 12:38:38,987 - model - INFO - Stored and extracted model to ./model
+2024-04-05 12:38:39,297 - model - INFO - Added the tokenizer successfully
+2024-04-05 12:38:39,298 - model - ERROR - Error loading model: 
+AutoModelForSequenceClassification requires the PyTorch library but it was not found in your environment.
+However, we were able to find a TensorFlow installation. TensorFlow classes begin
+with "TF", but are otherwise identically named to our PyTorch classes. This
+means that the TF equivalent of the class you tried to import would be "TFAutoModelForSequenceClassification".
+If you want to use TensorFlow, please use TF classes instead!
+
+If you really do want to use PyTorch please go to
+https://pytorch.org/get-started/locally/ and follow the instructions that
+match your environment.
+
+2024-04-05 12:40:51,198 - model - INFO - Initializing s3 client
+2024-04-05 12:42:02,280 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 12:42:15,875 - model - INFO - Stored and extracted model to ./model
+2024-04-05 12:42:16,168 - model - INFO - Added the tokenizer successfully
+2024-04-05 12:42:21,248 - model - ERROR - Error loading model: Error no file named tf_model.h5 found in directory ./model/model but there is a file for PyTorch weights. Use `from_pt=True` to load this model from those weights.
+2024-04-05 12:44:58,127 - model - INFO - Initializing s3 client
+2024-04-05 12:45:47,791 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 12:46:01,595 - model - INFO - Stored and extracted model to ./model
+2024-04-05 12:46:01,859 - model - INFO - Added the tokenizer successfully
+2024-04-05 12:46:07,931 - model - ERROR - Error loading model: No module named 'torch'
+2024-04-05 12:53:18,587 - model - INFO - Initializing s3 client
+2024-04-05 12:54:24,256 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 12:54:38,707 - model - INFO - Stored and extracted model to ./model
+2024-04-05 12:54:38,994 - model - INFO - Added the tokenizer successfully
+2024-04-05 12:54:45,434 - model - ERROR - Error loading model: No module named 'torch'
+2024-04-05 13:03:13,207 - model - INFO - Initializing s3 client
+2024-04-05 13:03:55,344 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 13:04:09,164 - model - INFO - Stored and extracted model to ./model
+2024-04-05 13:04:09,531 - model - INFO - Added the tokenizer successfully
+2024-04-05 13:10:01,557 - model - INFO - Initializing s3 client
+2024-04-05 13:10:47,705 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 13:11:01,346 - model - INFO - Stored and extracted model to ./model
+2024-04-05 13:11:01,661 - model - INFO - Added the tokenizer successfully
+2024-04-05 13:11:13,203 - model - INFO - loaded the model successfully
+2024-04-05 13:11:13,611 - model - ERROR - Error during prediction: 'tensorflow.python.framework.ops.EagerTensor' object has no attribute 'detach'
+2024-04-05 13:12:55,143 - model - INFO - Initializing s3 client
+2024-04-05 13:13:39,431 - model - INFO - downloaded the zip file from s3 successfully
+2024-04-05 13:13:52,531 - model - INFO - Stored and extracted model to ./model
+2024-04-05 13:13:52,829 - model - INFO - Added the tokenizer successfully
+2024-04-05 13:14:03,215 - model - INFO - loaded the model successfully
+2024-04-05 13:14:03,630 - model - INFO - Model successfully returned sentiment analysis
