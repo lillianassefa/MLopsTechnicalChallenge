@@ -6,4 +6,5 @@ pydantic-settings==2.2.1
 transformers==4.39.3
 python-dotenv==1.0.1
 SQLAlchemy==2.0.25
-torch
+scipy==1.13.0
+torch==2.2.2

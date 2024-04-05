@@ -46,6 +46,7 @@ def db_connection():
 
 DATABASE_URL = f"postgresql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}"
 engine = create_engine(DATABASE_URL)
+logger.info("Database engine created")
 db_session = scoped_session(
     sessionmaker(bind=engine, autoflush=False, autocommit=False)
 )
