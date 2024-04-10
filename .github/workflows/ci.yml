@@ -2,69 +2,69 @@ name: CI/CD Pipeline for FastAPI Application
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check Out Repo
-      uses: actions/checkout@v2
+      - name: Check Out Repo
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.12'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.12"
 
-    - name: Install Python Dependencies
-      run: |
-        pip install -r requirements.txt
+      - name: Install Python Dependencies
+        run: |
+          pip install -r requirements.txt
 
-    - name: Lint with Flake8
-      run: |
-        pip install flake8
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Lint with Flake8
+        run: |
+          pip install flake8
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: Test with pytest
-      run: |
-        pip install pytest
-        pytest
+      - name: Test with pytest
+        run: |
+          pip install pytest
+          pytest
 
-    - name: Build Docker Image
-      run: |
-        docker build -t simplesentimentapp:latest .
+      - name: Build Docker Image
+        run: |
+          docker build -t simplesentimentapp:latest .
 
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ secrets.AWS_REGION }}
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Push Docker Image to Amazon ECR
-      run: |
-        docker tag myapp:latest ${{ steps.login-ecr.outputs.registry }}/myapp:latest
-        docker push ${{ steps.login-ecr.outputs.registry }}/myapp:latest
+      - name: Push Docker Image to Amazon ECR
+        run: |
+          docker tag myapp:latest ${{ steps.login-ecr.outputs.registry }}/myapp:latest
+          docker push ${{ steps.login-ecr.outputs.registry }}/myapp:latest
 
-    - name: Fill in the new image ID in the Amazon ECS task definition
-      id: task-def
-      uses: aws-actions/amazon-ecs-render-task-definition@v1
-      with:
-        task-definition: ecs_task_definition.json
-        container-name: myapp-container
-        image: ${{ steps.login-ecr.outputs.registry }}/myapp:latest
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: ecs_task_definition.json
+          container-name: simplesentimentapp
+          image: ${{ steps.login-ecr.outputs.registry }}/simplesentiment:latest
 
-    - name: Deploy Amazon ECS Task Definition
-      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-      with:
-        service: myapp-service
-        cluster: myapp-cluster
-        task-definition: ${{ steps.task-def.outputs.task-definition }}
+      - name: Deploy Amazon ECS Task Definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          service: microservice
+          cluster: microservicecluster
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
